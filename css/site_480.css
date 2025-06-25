@@ -1,0 +1,118 @@
+﻿
+.head-wrapper {
+    display: block;
+    background-image: url("../images/calming_sunset_small.jpg");
+    padding-top: 30px;
+    overflow: hidden;
+}
+
+.head-inner-wrapper {
+    /*display: block;*/
+    /*flex-direction: column;*/
+    /*flex-wrap: wrap;*/
+    flex-direction: column;
+    /*align-content: space-between;*/
+}
+
+/*h1.logo {
+    height: 1px;
+}*/
+
+.head-img-holder {
+    /*flex: 1 1 77%;*/
+    width: 100%;
+    margin: 0 0 15px 0;
+}
+
+    .head-img-holder img {
+        margin: 0 auto;
+        /*display: block;*/
+        /*margin: 0 0 15px 0;*/
+    }
+
+.right-logo-wrapper {
+
+    width: 100%;
+    background-color: var(--head_inner_wrapper);
+}
+
+.right-logo {
+    max-width: 20rem;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.one-add-wrapper {
+    width: 100%;
+}
+
+#nav-wrapper nav {
+    width: 100%;
+}
+
+    #nav-wrapper nav .nav-icon {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background: url(../images/menu_icon.png) no-repeat 98% center;
+        cursor: pointer;
+    }
+
+    #nav-wrapper nav ul {
+        display:block;
+        padding: 0;
+        overflow: auto;
+        background-color: #9e8383;
+        float: none;
+        height: 0;
+    }
+
+        #nav-wrapper nav ul.openMenu {
+            height: auto;
+        }
+
+        #nav-wrapper nav ul li {
+            float: none;
+            text-align: left;
+            width: 100%;
+            margin: 0;
+            border: 0;
+        }
+
+            #nav-wrapper nav ul li:first-child {
+                border-left: 0;
+            }
+
+            #nav-wrapper nav ul li a {
+                color: #fff;
+                padding: 10px;
+                border-bottom: 1px solid #404040;
+                display: block;
+                margin: 0;
+            }
+
+#adds-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+
+footer ul {
+    width: 98%;
+}
+
+    footer ul:nth-last-child(1):nth-child(odd) {
+        /*padding-bottom:20px;*/
+        width: 98%;
+    }
+
+
+@Media screen and (max-width: 330px) {
+
+    .right-logo {
+        font-size: 0.9rem;
+        width: 11.6rem;
+        height: auto;
+    }
+}

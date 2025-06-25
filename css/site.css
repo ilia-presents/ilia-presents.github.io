@@ -1,0 +1,436 @@
+﻿:root {
+    --body_bg_color: #f9f9f9;
+    --head_inner_wrapper: rgba(36, 87, 131, 0.2);
+    --header_right_logo: #14344b;
+    --nav_menu_strips: #b59696;
+    --side_vert_borders: #aba1a1;
+    /*#d8d0d0 #f8f6f4 #cababa*/
+    --inside_vert_border: #aba1a1;
+    --inside_horz_border: #aba1a1;
+    --footer_bg_color: #2c1919;
+    --footer_color: white;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    /*min-height:100vh;*/
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    margin: 2px auto;
+    max-width: 1000px;
+    padding: 0;
+    /*min-height: 100%;*/
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.grid-container {
+    /*min-height: 100vh;*/
+    /*height: 100%;*/
+    display: grid;
+    grid-template-columns: auto 225px;
+    /* added 1 pixel more for the left border of the adds section and then even number for the adds' padding*/
+    grid-auto-rows: auto;
+    margin: 0 auto;
+    /*grid-template-areas:
+            "header header" 
+            "main section" 
+            "footer footer"; /* As a proof of concept grid-template-areas are added. Ready to use just uncomment the section above and bellow. Comment out the grid column's sections */
+}
+
+/*header {
+            grid-area: header;
+        }
+        main {
+            grid-area: main;
+        }
+        section {
+            grid-area: section;
+        }
+        footer {
+            grid-area: footer;
+        }*/
+
+header {
+    grid-column: 1/-1;
+}
+
+#nav-wrapper {
+    grid-column: 1/-1;
+}
+
+main {
+    grid-column: 1/2;
+    align-items: stretch;
+    min-height: calc(100vh - 440px);
+}
+
+section {
+    grid-column: 2/3;
+    align-items: stretch;
+}
+
+footer {
+    grid-column: 1/-1;
+    /*align-self:end;*/
+}
+
+.head-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*width: 100%;*/
+    height: 260px;
+    border-radius: 11px 11px 0 0;
+    background-image: url("../images/calming_sunset.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #ab9191;
+    border-bottom: 0;
+}
+
+.head-inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    /*justify-content:space-between;*/
+    background-color: var(--head_inner_wrapper);
+    width: 100%;
+    height: 82px;
+}
+
+h1.logo {
+    display: none;
+    text-indent: -10000px;
+}
+
+.head-img-holder {
+    flex: 1 1 28%;
+    margin: 0 auto 0 7%;
+}
+
+.head-img-holder img {
+    display: block;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
+}
+
+.right-logo-wrapper {
+    flex: 1 1 55%;
+    /*width: 66.8%;*/
+    margin: 0 9% 0 auto;
+}
+
+.right-logo {
+    width: 15.4rem;
+    height: 82px;
+    padding: 0.8rem;
+    margin: 0 auto;
+    background-color: var(--header_right_logo);
+    opacity: 0.7;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-logo .logo-motto,
+.right-logo .logo-motto-author {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.0rem;
+    color: white;
+}
+
+
+.right-logo .logo-motto {
+
+    font-style: italic;
+}
+
+.right-logo .logo-motto-author {
+
+    text-align: left;
+    align-self: flex-start;
+}
+
+
+#nav-wrapper {
+    width: 100%;
+    border-right: 1px solid var(--side_vert_borders);
+    border-left: 1px solid var(--side_vert_borders);
+    /*overflow: auto;*/
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* strips over and under nav menu*/
+#nav-wrapper::before {
+    content: "";
+    width: 100%;
+    height: 2px;
+    display: block;
+    background-color: var(--nav_menu_strips);
+}
+
+#nav-wrapper::after {
+    content: " ";
+    width: 100%;
+    height: 2px;
+    display: block;
+    background-color: var(--nav_menu_strips);
+}
+
+/* end strips over and under nav menu */
+
+#nav-wrapper nav {
+    background-color: #f7e6dd;
+}
+
+#nav-wrapper nav::after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+/* this class is kept for use of JS or jQuery if someone wants to try them */
+#nav-wrapper #nav-toggle {
+    display: none;
+}
+
+#nav-wrapper #nav-toggle:checked~nav ul {
+    height: auto;
+}
+
+#nav-wrapper nav h3 {
+    text-indent: -10000px;
+    height: 0;
+}
+
+#nav-wrapper nav ul {
+    float: right;
+    background-color: #9e8383;
+    padding: 5px 20px;
+    display: flex;
+}
+
+#nav-wrapper nav ul li {
+    border-right: 1px solid black;
+}
+
+#nav-wrapper nav ul li:first-child {
+    border-left: 1px solid black;
+}
+
+#nav-wrapper nav ul li a {
+    padding: 5px 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 0.84rem;
+}
+
+#nav-wrapper nav ul li a:hover {
+    background-color: #bf9595;
+    transition: 0.2s;
+}
+
+.adds-section {
+    background-color: var(--body_bg_color);
+}
+
+.main-wrapper {
+    background-color: var(--body_bg_color);
+    border-right: 1px solid var(--inside_vert_border);
+    border-left: 1px solid var(--side_vert_borders);
+}
+
+.main-content {
+    padding: 1rem;
+    text-align: justify;
+}
+
+.main-content p {
+
+    margin-bottom: 9px;
+    font-size: 0.9rem;
+}
+
+main h2 {
+
+   font-size: 1.1rem; 
+}
+.adds-section {
+    padding-top: 17px;
+    border-right: 1px solid var(--side_vert_borders);
+}
+
+nav h3 {
+    display: none;
+}
+
+main h2 {
+    width: 100%;
+    margin: 0 auto 15px auto;
+    text-align: center;
+}
+
+h3 {
+    width: 100%;
+    margin: 0 auto 15px auto;
+    text-align: center;
+}
+
+.one-add-wrapper {
+    width: 100%;
+    margin-bottom: 20px
+}
+
+.add {
+    width: 200px;
+    height: 240px;
+    background-color: #d79c73;
+    padding-top: 12px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: var(--footer_bg_color);
+    padding: 1%;
+    width: 100%;
+    border-radius: 0 0 11px 11px;
+}
+
+footer ul {
+    display: inline-block;
+    padding: 0;
+    color: var(--footer_color);
+    font-weight: bold;
+    font-size: 1.0rem;
+    width: 32%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+footer ul:last-child {
+    margin-right: 0;
+}
+
+footer li {
+    margin: 12px 0;
+}
+
+footer a {
+    color: var(--footer_color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+footer .empty-item {
+    height: 0.7rem;
+}
+
+footer .footer-img {
+    opacity: 0.9;
+}
+
+.font-size07 {
+
+    font-size: 0.7rem;
+}
+
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 40px solid #1c6f6d;
+    border-radius: 2px;
+}
+
+.back-to-top {
+    width: 30px;
+    height: 40px;
+    background-color: #1c6f6d;
+    position: fixed;
+    bottom: 2rem;
+    right: 225px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(54, 200, 188, 0.1);
+}
+
+/* Youtube video embeder*/
+.video-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+}
+
+/* 16x9: YouTube; */
+.video-container-16x9 {
+    padding-bottom: 56.25%;
+}
+
+/* 4x3 Older Videos */
+.video-container-4x3 {
+    padding-bottom: 75%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* End Youtube video embeder*/
+
+.container-border-padd {
+    border: 1px solid var(--side_vert_borders);
+    border-radius: 4px;
+    padding: .4rem;
+}
+
+.margin-bottom-midd {
+    margin-bottom: 20px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #1d0101;
+    margin: 0.8em 0;
+    padding: 0;
+}
