@@ -434,3 +434,8 @@ hr {
     margin: 0.8em 0;
     padding: 0;
 }
+
+p.spacer{
+
+    font-size:1.3rem;
+}
